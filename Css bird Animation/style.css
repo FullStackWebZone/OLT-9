@@ -1,0 +1,305 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+} 
+
+body{
+	background: #ffffb9;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bird-wrap{
+	width: 270px;
+	height: 430px;
+	background:#12c2e9;
+	border-radius: 140px;
+	position: relative;
+}
+
+.hair{
+	position: absolute;
+	width: 120px;
+	height: 40px;
+	background:#12c2e9;
+	right: 0;
+	top: 1px;
+	border-radius: 0 0 30px 0;
+	animation:hairMove 1s alternate infinite;
+}
+
+
+
+.eye-left,.eye-right{
+	background: #333;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	position: absolute;
+	animation: eyesMove 0.5s infinite;
+}
+
+.eye-left{
+	top: 90px;
+	left: 50px;
+}
+
+.eye-right{
+	top: 90px;
+	right: 50px;
+}
+
+.eye-inner{
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 50%;
+	position: absolute;
+	right: 4px;
+	top: 12px;
+}
+
+
+.mouth{
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 155px;
+	left: 50%;
+	transform: translate(-50%);
+	border-style: solid;
+	border-width: 40px 40px 0 40px;
+	border-color: #fff transparent transparent transparent ;
+}
+
+.stomach{
+	background: #fff;
+	width: 144px;
+	height: 190px;
+	border-radius: 70px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.stomach-inner{
+	width: 40px;
+	height: 90px;
+	background:#12c2e9;
+	position: absolute;
+	left: 80px;
+	top:80px;
+	border-radius: 50px;
+}
+
+
+.left-hand,.right-hand,.left-leg,.right-leg{
+	background: #0faed2;
+	width: 60px;
+	height: 90px;
+	position: absolute;
+}
+
+
+.left-hand{
+	top: 140px;
+	left: -40px;
+	border-radius: 50px 0 30px 30px;
+	animation: leftLegHandMove 2s infinite alternate;
+}
+
+.right-hand{
+	top: 140px;
+	right: -40px;
+	border-radius: 0 50px 30px 30px;
+	animation: rightLegHandMove 2s infinite alternate;
+}
+
+.left-leg{
+	bottom: 0;
+	left: -28px;
+	border-radius: 50px 0 30px 30px;
+	animation: leftLegHandMove 2s infinite alternate;
+}
+
+.right-leg{
+	bottom: 0px;
+	right: -28px;
+	border-radius: 0 50px 30px 30px;
+	animation: rightLegHandMove 2s infinite alternate;
+}
+
+
+
+/*now animation time */
+
+
+/* hair animation*/
+
+@keyframes hairMove{
+	0%{
+		transform: rotate(0);
+	}
+
+	100%{
+		transform: rotate(-20deg)
+	}
+}
+
+/* eyes animation*/
+
+@keyframes eyesMove{
+	0%{
+		transform: rotate(-20deg);
+	}
+
+	50%{
+		transform: rotate(30deg);
+	}
+
+	100%{
+		transform: rotate(-20deg);
+	}
+
+}
+
+
+/* left hand & leg animation*/
+
+@keyframes leftLegHandMove{
+	0%{
+		transform: rotate(0);
+	}
+
+	50%{
+		transform: rotate(20deg);
+	}
+
+	100%{
+		transform: rotate(-20deg)
+	}
+
+}
+
+
+
+/* left hand & leg animation*/
+
+@keyframes rightLegHandMove{
+	0%{
+		transform: rotate(0);
+	}
+
+	50%{
+		transform: rotate(-20deg);
+	}
+
+	100%{
+		transform: rotate(20deg)
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

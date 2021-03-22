@@ -1,0 +1,217 @@
+:root {
+  --browser-size--ul: 35; /* in vmin */
+  --content-size--ul: calc(var(--browser-size--ul) * 3.1);
+  --thumb-size--ul: calc(
+    var(--browser-size--ul) / var(--content-size--ul) * var(--browser-size--ul)
+  );
+
+  --browser-size: calc(var(--browser-size--ul) * 1vmin);
+  --content-size: calc(var(--content-size--ul) * 1vmin);
+  --thumb-size: calc(var(--thumb-size--ul) * 1vmin);
+
+  --scrollbar-width: 1vmin;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+#browser {
+  height: var(--browser-size);
+  width: calc(var(--browser-size) * 4 / 3);
+
+  outline: 10px solid lightblue;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--scrollbar-width);
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-areas: "content scrollbar";
+
+  position: relative;
+}
+
+#browser main, #thumb {
+  transition: transform 3s linear, margin-top 3s linear;
+}
+
+main {
+  font-family: "BLOKK";
+  font-size: calc(2vmin + .2em);
+  padding: 1rem;
+  color: #999;
+
+  grid-area: content;
+  height: var(--content-size);
+  overflow: hidden;
+
+  outline: 1px solid grey;
+  z-index: -1;
+
+  will-change: transform;
+}
+
+main > * {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  transform: translateX(calc(var(--browser-size) * 4 / 3 * -0.8));
+}
+
+main > .in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#scrollbar {
+  grid-area: scrollbar;
+  height: var(--browser-size);
+  align-self: start;
+
+  background: #ccc;
+}
+
+#scrollbar #thumb {
+  top: 0;
+  height: var(--thumb-size);
+  width: 100%;
+  background: #333;
+  border-radius: 9999px;
+
+  will-change: transform;
+}
+
+/* Controls */
+.controlbutton {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(calc(-50% + var(--offset))) translateY(calc(-4rem + (var(--browser-size) / -2)));
+}
+
+#forwardbutton {
+  --offset: 75%;
+}
+
+#backwardbutton {
+  --offset: -75%;
+}
+
+.controlbutton::after {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+#forwardbutton::after {
+  content: '⏭';
+}
+
+#backwardbutton::after {
+  content: '⏮';
+}
+
+#play ~ #forwardbutton,
+#play:checked ~ #backwardbutton {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#play:checked ~ #forwardbutton,
+#play ~ #backwardbutton{
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Checkboxes */
+#play,
+#reversal,
+#overflow,
+#play + label,
+#reversal + label,
+#overflow + label {
+  position: fixed;
+  left: 1rem;
+  margin: 0;
+}
+#play + label,
+#reversal + label,
+#overflow + label {
+  left: 2.25rem;
+  white-space: nowrap;
+}
+
+#play,
+#play + label {
+  top: 1rem;
+}
+#reversal,
+#reversal + label {
+  top: 2.5rem;
+}
+#overflow,
+#overflow + label {
+  top: 4rem;
+}
+
+/* Respond too checkboxes */
+#play:checked ~ #browser main {
+  transform: translateY(calc(-100% + var(--browser-size)));
+}
+
+#play:checked ~ #browser #thumb {
+  /* 🪓 Hack: we animate margin-top to force repaints so that 
+     our IntersectionObserver will kick into action … 
+  */
+  margin-top: calc(var(--browser-size) - var(--thumb-size));
+}
+
+#overflow:checked ~ #browser {
+  overflow: hidden;
+}
+
+/** Poor man's infobox */
+details {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  z-index: 9999;
+}
+dialog[open] {
+  position: fixed;
+  top: 10vmin;
+  right: 10vmin;
+  bottom: 10vmin;
+  left: 10vmin;
+  width: auto;
+  height: auto;
+
+  /* Extra CSS for Safari … */
+  background: #eee;
+  border: 0.25em solid lightblue;
+  padding: 1em;
+  overflow: auto;
+}
+details[open] > summary::after {
+  content: '';
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgba(0 0 0 / 0.5);
+  display: block;
+}
+
+/* Hide summary arrow …*/
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary {
+  display: inline-block;
+}
+details summary::marker {
+  display: none;
+}

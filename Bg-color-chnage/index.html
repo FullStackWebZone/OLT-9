@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Dynamic Background color chnage</title> 
+	<link rel="stylesheet" type="text/css" href="style.css" />	
+<body>
+ 	
+<ul>
+	<li><a href="#" style="background:#00b09b"></a></li>
+	<li><a href="#" style="background:#f12711"></a></li>
+	<li><a href="#" style="background:#f5af19"></a></li>
+	<li><a href="#" style="background:#e52d27"></a></li>
+</ul>
+
+
+<script type="text/javascript">
+	
+	/*-- target all anchor tags--*/
+	var anchor=document.querySelectorAll("ul li a");
+
+	/*--this is the syntax of for each loop--*/
+	anchor.forEach(function(obj){
+		/*-- here obj return all anchor tags--*/
+		/*console.log(obj)*/
+
+		/* get background color clicked anchor tag*/
+
+		obj.addEventListener("click",function(){
+			/*-- add click event on anchor tag--*/
+			/*alert('hi')*/
+
+
+			/* get background color clicked anchor tag*/
+
+			var getColor=obj.style.background;
+
+			/*alert(getColor);*/
+			/*====this will return color in rgba form===*/
+
+			document.body.style.background=getColor;
+
+
+
+		})
+	});
+
+
+</script>
+ 
+ 
+</body>  
+
+</html> 

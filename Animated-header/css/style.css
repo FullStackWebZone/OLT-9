@@ -1,0 +1,229 @@
+ *{
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ } 
+
+
+body{
+    font-family: 'Roboto', sans-serif;	 
+    font-size: 18px;
+    background:url(../images/bg.png) no-repeat bottom;
+    background-size: cover;
+    height: 100vh;
+}
+
+.animation-wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.container{
+	width:1170px;
+	margin: 0 auto;
+}
+
+h1{
+	font-size: 70px;
+	color: #6c63ff;
+}
+
+p{
+	padding: 15px 0;
+	line-height: 1.8; 
+}
+
+a{
+	background:#6c63ff;
+	display: inline-block;
+	padding: 15px 42px;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 40px;
+}
+
+
+.animation-inner{
+	display: flex;
+}
+
+.text,.images{
+	flex:1;
+	margin: 0 15px;
+}
+
+.text{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	opacity: 0;
+	visibility: 0;
+	animation: textMove 5s forwards;
+}
+
+.images{
+	position: relative;
+	height: 400px;
+}
+
+.line{
+	width: 10%;
+	height: 4px;
+	background:#2f2e41;
+	border-radius: 8px;
+	position: absolute;
+	bottom: 0;
+	animation:lineMove 5s forwards;
+	/*=== forwards i used here for stop animation at last===*/
+}
+
+
+
+.tree-1{
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	animation: objectMove 3s forwards;
+	opacity: 0;
+	visibility:hidden;
+}
+
+.tree-2{
+	position: absolute;
+	bottom: 60px;
+	right: 0;
+	animation: objectMove 3s forwards;
+	animation-delay: 1s;
+	opacity: 0;
+	visibility:hidden;
+
+}
+
+
+
+.bird-1{
+	position: absolute;
+    left: 190px;
+    bottom: -60px;
+    visibility: hidden;
+    opacity: 0;
+    animation:objectMove 3s forwards;
+    animation-delay: 2s;
+}
+
+.bird-2{
+	position: absolute;
+    right: 175px;
+    bottom: -60px;
+    visibility: hidden;
+    opacity: 0;
+    animation:objectMove 3s forwards;
+    animation-delay: 6s;
+}
+
+.bird-3{
+	position: absolute;
+    right: 98px;
+    bottom: -60px;
+    visibility: hidden;
+    opacity: 0;
+    animation:objectMove 3s forwards;
+    animation-delay: 4s;
+}
+
+
+
+
+/*========object move animation start==========*/
+@keyframes objectMove{
+	0%{
+
+	}
+
+	100%{
+		bottom: 0;
+		opacity: 1;
+		visibility:visible;
+	}
+}
+/*========object move animation end==========*/
+
+
+/*======== line animation start=======*/
+@keyframes lineMove{
+	0%{
+		width: 10%;
+	}
+
+	100%{
+		width: 100%;
+	}
+}
+/*======== line animation end=======*/
+
+/*==========text animation start===========*/
+@keyframes textMove{
+	0%{
+
+	}
+
+	100%{
+		opacity: 1;
+		visibility: visible;
+	}
+}
+/*==========text animation end===========*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
+	</head>
+	<body>
+		<input id="play" type="checkbox" /><label for="play">Set Scroll Position to Bottom</label>
+<input id="showprogressbar" type="checkbox" checked="checked" /><label for="showprogressbar">Show Progressbar</label>
+<input id="overflow" type="checkbox" /><label for="overflow">Hide overflowing content (Firefox fix)</label>
+
+<label for="play" class="controlbutton" id="forwardbutton"></label>
+<label for="play" class="controlbutton" id="backwardbutton"></label>
+
+<div id="browser">
+  <div id="progress"></div>
+  <main>
+    <h1>Lorem ipsum dolor</h1>
+    <p>Sit amet, consectetur adipiscing elit. Nunc lectus eros, dapibus quis egestas eget, commodo et leo.</p>
+    <p>Nulla est ipsum, elementum a neque a, maximus ultricies justo. Nulla tincidunt nec nulla eu malesuada. Etiam maximus massa nec auctor facilisis.</p>
+    <p>Henean sed commodo nibh, porttitor efficitur nisl. Integer porta, libero at facilisis consectetur, velit lorem posuere enim, vulputate vulputate massa ante sed diam.</p>
+    <h2>Morbi aliquam efficitur finibus.</h2>
+    <p>Phasellus ornare ultricies purus vel hendrerit. Suspendisse id ultricies nisi. Pellentesque rutrum ante ut rhoncus gravida.</p>
+    <p>Henean sed commodo nibh, porttitor efficitur nisl. Integer porta, libero at facilisis consectetur, velit lorem posuere enim, vulputate vulputate massa ante sed diam.</p>
+    <p>Nulla est ipsum, elementum a neque a, maximus ultricies justo. Nulla tincidunt nec nulla eu malesuada. Etiam maximus massa nec auctor facilisis.</p>
+    <h2>Morbi aliquam.</h2>
+    <p>Henean sed commodo nibh, porttitor efficitur nisl. Integer porta, libero at facilisis consectetur, velit lorem posuere enim, vulputate vulputate massa ante sed diam.</p>
+    <h3>Morbi aliquam efficitur finibus.</h3>
+    <p>Phasellus ornare ultricies purus vel hendrerit.</p>
+  </main>
+  <aside id="scrollbar">
+    <div id="thumb"></div>
+  </aside>
+</div>
+
+<details>
+  <summary>ℹ️</summary>
+  <dialog open>
+    <h1>About this Pen</h1>
+    <p>ℹ️ Scroll-Linked Animations are animations are linked to the scroll offset of a scroll container. As you scroll back and forth the scroll container, you will see the animation timeline advance or rewind as you do so.</p>
+    
+    <p>👉 A typical example is a progress bar shown on top of a page: there is a direct link between the scroll progress and visible size of the progress bar.</p>
+    
+    <p>☑️ In this demo you can't scroll yourself, but can fake a scroll using the “Set Scroll Position to Bottom” control at the top left.</p>
+    
+    <p>👀 More animations/visualizations: <a href="https://codepen.io/collection/AYoego" target="_top">https://codepen.io/collection/AYoego</a></p>
+    
+    <p>👋 Built by Bramus! — <a href="https://www.twitter.com/bramus" target="_top">@bramus</a> - <a href="https://www.bram.us/" target="_top">https://www.bram.us/</a> </p>
+  </dialog>
+</details>
+		<script type="text/javascript"></script>
+	</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
+	</head>
+	<body>
+
+		<div class="toolbar">
+	<ul class="tool-list">
+		<li class="tool">
+			<button 
+				type="button" 
+				data-command='justifyLeft'
+				class="tool--btn">
+				<i class="fa fa-align-left" aria-hidden="true"></i>
+			</button>
+		</li>
+		<li class="tool">
+			<button 
+				type="button" 
+				data-command='justifyCenter' 
+				class="tool--btn">
+				<i class="fa fa-align-center" aria-hidden="true"></i>
+			</button>
+		</li>
+		<li class="tool">
+			<button 
+				type="button" 
+				data-command="bold" 
+				class="tool--btn">
+				<i class="fa fa-bold" aria-hidden="true"></i>
+			</button>
+		</li>
+		<li class="tool">
+			<button 
+				type="button" 
+				data-command="italic"
+				class="tool--btn">
+				<i class="fa fa-italic" aria-hidden="true"></i>
+			</button>
+		</li>
+		<li class="tool">
+			<button 
+				type="button" 
+				data-command="underline"
+				class="tool--btn">
+				<i class="fa fa-underline" aria-hidden="true"></i>
+			</button>
+		</li>
+		<li class="tool">
+			<button 
+				type="button" 
+				data-command="insertOrderedList"
+				class="tool--btn">
+				<i class="fa fa-list-ol" aria-hidden="true"></i>
+			</button>
+		</li>
+		<li class="tool">
+			<button 
+				type="button" 
+				data-command="insertUnorderedList"
+				class="tool--btn">
+				<i class="fa fa-list-ul" aria-hidden="true"></i>
+			</button>
+		</li>
+		<li class="tool">
+			<button 
+				type="button" 
+				data-command="createlink" 
+				class="tool--btn">
+				<i class="fa fa-link" aria-hidden="true"></i>
+			</button>
+		</li>
+	</ul>
+</div>
+
+<div id="output" contenteditable="true"></div>
+
+
+		<script type="text/javascript">
+			let output = document.getElementById('output');
+let buttons = document.getElementsByClassName('tool--btn');
+for (let btn of buttons) {
+	btn.addEventListener('click', () => {
+		let cmd = btn.dataset['command'];
+		if(cmd === 'createlink') {
+			let url = prompt("Enter the link here: ", "http:\/\/");
+			document.execCommand(cmd, false, url);
+		} else {
+			document.execCommand(cmd, false, null);
+		}
+	})
+}
+
+		</script>
+	</body>
+</html>
